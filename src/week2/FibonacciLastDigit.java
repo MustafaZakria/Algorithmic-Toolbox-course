@@ -1,0 +1,71 @@
+package week2;
+
+import java.util.*;
+
+public class FibonacciLastDigit {
+    //        if(n <= 1)
+//            return n;
+//
+//
+//        long a = 0;
+//        long b = 1;
+//        long c = 0;
+//
+//        for(int i = 2; i <= n; i++) {
+//            c = a + b;
+//            a = b;
+//            b = c;
+//        }
+//
+//        return (int) (c % 10);
+    private static int getFibonacciLastDigitNaive(int n) {
+        if(n <= 1)
+            return n;
+
+        long[][] matrix = {{1, 1}, {1, 0}};
+
+        long[][] result = matrixPower(matrix, n - 1);
+        return (int) (result[0][0]);
+    }
+
+    private static long[][] matrixPower(long[][] matrix, long power) {
+        long[][] result = {{1, 0}, {0, 1}}; //identity
+
+        while (power > 0) {
+            if (power % 2 == 1) {
+                result = matrixMultiply(result, matrix);
+            }
+
+            matrix = matrixMultiply(matrix, matrix);
+            power /= 2;
+        }
+
+        return result;
+    }
+
+    private static long[][] matrixMultiply(long[][] a, long[][] b) {
+        int rowA = a.length;
+        int colB = b[0].length;
+        int colA = a[0].length;
+
+        long[][] result = new long[rowA][colB];
+
+        for (int i = 0; i < rowA; i++) {
+            for (int j = 0; j < colB; j++) {
+                for (int k = 0; k < colA; k++) {
+                    result[i][j] += ((a[i][k] % 10) * (b[k][j] % 10)) % 10;
+                    result[i][j] %= 10;
+                }
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int c = getFibonacciLastDigitNaive(n);
+        System.out.println(c);
+    }
+}
+
