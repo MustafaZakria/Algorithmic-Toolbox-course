@@ -1,3 +1,5 @@
+package week3;
+
 import java.util.*;
 
 public class FractionalKnapsack {
@@ -17,9 +19,11 @@ public class FractionalKnapsack {
         }
 
         items.sort((o1, o2) -> {
-            if (o1.value / o1.weight > o2.value / o2.weight) {
+            double ratio1 = (double) o1.value / o1.weight;
+            double ratio2 = (double) o2.value / o2.weight;
+            if (ratio1 > ratio2) {
                 return -1;
-            } else if (o1.value / o1.weight < o2.value / o2.weight) {
+            } else if (ratio1 < ratio2) {
                 return 1;
             }
             return 0;
@@ -28,7 +32,7 @@ public class FractionalKnapsack {
         double totalValue = 0;
         for(int i = 0; i < values.length; i++) {
             if(capacity == 0)
-                return totalValue;
+                return Double.parseDouble(String.format("%.4f", totalValue));
 
             int w = Math.min(items.get(i).weight, capacity);
             totalValue+= (w * ((double)items.get(i).value / items.get(i).weight));

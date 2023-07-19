@@ -1,6 +1,10 @@
-import java.util.*;
+package week3;
 
-public class LargestNumber {
+import java.util.*;
+import java.math.BigInteger;
+
+
+public class LargestNumber {    // caused an error
     private static String largestNumber(String[] a) {
         //write your code here
         ArrayList<String> list = new ArrayList<>(Arrays.asList(a));
@@ -19,31 +23,23 @@ public class LargestNumber {
         for (String str : list) {
             result.insert(0, str);
         }
-        return result.toString();
+
+        BigInteger number = new BigInteger(result.toString());
+
+        return number.toString();
     }
 
     private static String isBetter(String num1, String num2) {
         int integer1 = Integer.parseInt(num1);
         int integer2 = Integer.parseInt(num2);
 
-        int len = Math.max(num1.length(), num2.length());
         String min = String.valueOf(Math.min(integer1, integer2));
         String max = String.valueOf(Math.max(integer1, integer2));
 
-        int counter = 0;
-        for (int i = 0; i < len && counter < min.length(); i++) {
-            int i1 = Integer.parseInt(String.valueOf(min.charAt(counter)));
-            int i2 = Integer.parseInt(String.valueOf(max.charAt(i)));
-
-            if (i1 > i2) {
-                return min;
-            } else if (i1 < i2) {
-                return max;
-            } else if (counter < min.length() - 1) {
-                counter++;
-            }
-        }
-
+        BigInteger number1 = new BigInteger(min+max);
+        BigInteger number2 = new BigInteger(max+min);
+        if(number1.compareTo(number2) > 0)
+            return min;
         return max;
     }
 

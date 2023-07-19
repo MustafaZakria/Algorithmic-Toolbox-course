@@ -1,6 +1,8 @@
+package week3;
+
 import java.util.*;
 
-public class DifferentSummands {
+public class DifferentSummands { //Not solved
     private static List<Integer> optimalSummands(int n) {
         List<Integer> summands = new ArrayList<Integer>();
         //write your code here
