@@ -4,8 +4,16 @@ public class DotProduct {
     private static long maxDotProduct(int[] a, int[] b) {
         //write your code here
         long result = 0;
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
         for (int i = 0; i < a.length; i++) {
-            result += (long)a[i] * (long)b[i];
+            list1.add(a[i]);
+            list2.add(b[i]);
+        }
+        list1.sort(Collections.reverseOrder());
+        list2.sort(Collections.reverseOrder());
+        for (int i = 0; i < a.length; i++) {
+            result += (long)list1.get(i) * (long)list2.get(i);
         }
         return result;
     }
