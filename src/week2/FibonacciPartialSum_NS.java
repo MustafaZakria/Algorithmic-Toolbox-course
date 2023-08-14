@@ -2,7 +2,7 @@ package week2;
 
 import java.util.*;
 
-public class FibonacciPartialSum {
+public class FibonacciPartialSum_NS {
     static long getFibonacciPartialSumNaive(long from, long to) {
         if(from == to)
             return getFibonacciSumSquaresNaive(from);

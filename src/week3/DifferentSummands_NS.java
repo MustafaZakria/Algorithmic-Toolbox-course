@@ -2,7 +2,7 @@ package week3;
 
 import java.util.*;
 
-public class DifferentSummands { //Not solved
+public class DifferentSummands_NS { //Not solved
     private static List<Integer> optimalSummands(int n) {
         List<Integer> summands = new ArrayList<Integer>();
         //write your code here

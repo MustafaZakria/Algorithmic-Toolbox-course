@@ -4,7 +4,7 @@ import java.util.*;
 import java.math.BigInteger;
 
 
-public class LargestNumber {    // caused an error
+public class LargestNumber_NS {    // caused an error
     private static String largestNumber(String[] a) {
         //write your code here
         ArrayList<String> list = new ArrayList<>(Arrays.asList(a));
