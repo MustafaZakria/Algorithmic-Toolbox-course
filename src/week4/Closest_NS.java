@@ -1,9 +1,9 @@
+package week4;
+
 import java.io.*;
 import java.util.*;
 
-import static java.lang.Math.*;
-
-public class Closest {
+public class Closest_NS {
 
     static class Point implements Comparable<Point> {
         long x, y;

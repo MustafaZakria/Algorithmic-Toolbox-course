@@ -1,6 +1,8 @@
+package week4;
+
 import java.util.Scanner;
 
-public class PointsAndSegments {
+public class PointsAndSegments_NS {
 
     private static int[] fastCountSegments(int[] starts, int[] ends, int[] points) {
         int[] cnt = new int[points.length];
